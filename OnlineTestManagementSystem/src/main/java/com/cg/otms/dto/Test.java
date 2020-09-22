@@ -16,26 +16,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity                             //Indicates that the class is an entity
-@Table(name="TestDetails")          //specifies the table name
+
+@Entity
+@Table(name="TestDetails")
 public class Test {
 
-	@Id                              //It indicates primary key of an entity class
+	@Id
 	private BigInteger id;
 	private String title;
 	private int testTotalMarks;
-	private int testMarksScored=0;
+	private int testMarksScored;
 	private LocalTime duration;
 	private LocalDateTime starttime;
 	private LocalDateTime endtime;
 	
-	@OneToMany(mappedBy="test",cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval=true) //It indicates one to many relation
-	private Set<Question> testQuestions;	
+	
+	@OneToMany(mappedBy="test",cascade=CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval=true)
+	private Set<Question> testQuestions;
 
-	@OneToOne(fetch = FetchType.LAZY)   //It indicates one to one relation 
-	@JoinColumn                              
+	
+
+	
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn
 	private User user;
-	//Getters and setters methods implementation
+	
 	public BigInteger getId() {
 		return id;
 	}

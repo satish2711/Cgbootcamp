@@ -12,12 +12,11 @@ import javax.persistence.Table;
 @Entity                                   //Indicates that the class is an entity
 @Table(name="QuestionDetails")            //specifies the table name
 public class Question  {
-
-	@Id                                     //It indicates primary key of an entity class
+	@Id								 //It indicates primary key of an entity class
 	private BigInteger questionId;
    
-	@ManyToOne(fetch = FetchType.LAZY)      //It indicates many to one relation 
-	@JoinColumn(nullable=false)         
+	@ManyToOne(fetch = FetchType.LAZY)	//It indicates many to one relation 
+	@JoinColumn(nullable=false)
 	private Test test;
 	
 	private String questionOptions;
@@ -28,6 +27,7 @@ public class Question  {
 
 	private int choosenAnswer; 
 	private int marksScored;
+	
 	
 	//Getters and setters methods implementation
 	public BigInteger getQuestionId() {
